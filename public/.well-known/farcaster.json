@@ -1,0 +1,18 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjIwOTY1LCJ0eXBlIjoiY3VzdG9keSIsImtleSI6IjB4RjA0NjJGZGI0MUVCMDM3Q2ExODQzOTFENjc0YjlDMUYxMWJkMTRBMiJ9",
+    "payload": "eyJkb21haW4iOiJtaW5pYXBwcy1haS1wZXQudmVyY2VsLmFwcCJ9",
+    "signature": "34Lc7biXZy6pvwbXhJN6xfleZnpUzrcYlxVmB7ISQvFkvZnVotpCs0LEHfnUJ8OsuBA9htF8XfXsjr0GVAdujxs="
+  },
+  "frame": {
+    "version": "1",
+    "name": "Example Frame",
+    "iconUrl": "https://miniapps-ai-pet.vercel.app/icon.png",
+    "homeUrl": "https://miniapps-ai-pet.vercel.app",
+    "imageUrl": "https://miniapps-ai-pet.vercel.app/image.png",
+    "buttonTitle": "Check this out",
+    "splashImageUrl": "https://miniapps-ai-pet.vercel.app/splash.png",
+    "splashBackgroundColor": "#eeccff",
+    "webhookUrl": "https://miniapps-ai-pet.vercel.app/api/webhook"
+  }
+}
