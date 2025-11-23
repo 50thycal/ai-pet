@@ -1,18 +1,18 @@
 {
   "accountAssociation": {
     "header": "eyJmaWQiOjIwOTY1LCJ0eXBlIjoiY3VzdG9keSIsImtleSI6IjB4RjA0NjJGZGI0MUVCMDM3Q2ExODQzOTFENjc0YjlDMUYxMWJkMTRBMiJ9",
-    "payload": "eyJkb21haW4iOiJtaW5pYXBwcy1haS1wZXQudmVyY2VsLmFwcCJ9",
-    "signature": "34Lc7biXZy6pvwbXhJN6xfleZnpUzrcYlxVmB7ISQvFkvZnVotpCs0LEHfnUJ8OsuBA9htF8XfXsjr0GVAdujxs="
+    "payload": "eyJkb21haW4iOiJhaS1wZXQtemV0YS52ZXJjZWwuYXBwIn0",
+    "signature": "vN4RxUW4NrDmGhdk1L9CerGlo0i3mML0D/x54rne9o41Itq69fVBS9TvCDMdFh5vEaMmaPOckhzQqwstJ2uEmxs="
   },
   "frame": {
     "version": "1",
     "name": "Example Frame",
-    "iconUrl": "https://miniapps-ai-pet.vercel.app/icon.png",
-    "homeUrl": "https://miniapps-ai-pet.vercel.app",
-    "imageUrl": "https://miniapps-ai-pet.vercel.app/image.png",
+    "iconUrl": "https://ai-pet-zeta.vercel.app/icon.png",
+    "homeUrl": "https://ai-pet-zeta.vercel.app",
+    "imageUrl": "https://ai-pet-zeta.vercel.app/image.png",
     "buttonTitle": "Check this out",
-    "splashImageUrl": "https://miniapps-ai-pet.vercel.app/splash.png",
+    "splashImageUrl": "https://ai-pet-zeta.vercel.app/splash.png",
     "splashBackgroundColor": "#eeccff",
-    "webhookUrl": "https://miniapps-ai-pet.vercel.app/api/webhook"
+    "webhookUrl": "https://ai-pet-zeta.vercel.app/api/webhook"
   }
 }
