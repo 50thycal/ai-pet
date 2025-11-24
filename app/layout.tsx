@@ -5,12 +5,6 @@ export const metadata: Metadata = {
   title: APP_CONFIG.title,
   description: APP_CONFIG.description,
   other: {
-    'fc:frame': JSON.stringify({
-      version: 'next',
-      imageUrl: 'https://ai-pet-zeta.vercel.app/splash.png',
-      buttonTitle: 'Open AI Pet',
-      websiteUrl: 'https://ai-pet-zeta.vercel.app/',
-    }),
     'fc:miniapp': JSON.stringify({
       version: '1',
       name: 'AI Pet',
@@ -32,6 +26,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta
+          property="fc:frame"
+          content='{"version":"next","imageUrl":"https://ai-pet-zeta.vercel.app/splash.png","buttonTitle":"Open AI Pet","websiteUrl":"https://ai-pet-zeta.vercel.app/"}'
+        />
+      </head>
       <body style={{ margin: 0, padding: '20px', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
         {children}
       </body>
