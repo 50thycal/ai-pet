@@ -7,32 +7,31 @@ export const metadata: Metadata = {
   other: {
     'fc:miniapp': JSON.stringify({
       version: '1',
-      name: 'AI Pet',
-      iconUrl: 'https://ai-pet-zeta.vercel.app/icon.png',
-      homeUrl: 'https://ai-pet-zeta.vercel.app',
-      imageUrl: 'https://ai-pet-zeta.vercel.app/image.png',
-      buttonTitle: 'Check this out',
-      splashImageUrl: 'https://ai-pet-zeta.vercel.app/splash.png',
-      splashBackgroundColor: '#eeccff',
-      webhookUrl: 'https://ai-pet-zeta.vercel.app/api/webhook',
+      imageUrl: 'https://ai-pet-zeta.vercel.app/splash.png',
+      button: {
+        title: 'AI Pet',
+        action: {
+          type: 'launch_miniapp',
+          name: 'AI Pet',
+          url: 'https://ai-pet-zeta.vercel.app/',
+        },
+      },
     }),
   },
 }
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <head>
-        <meta
-          property="fc:frame"
-          content='{"version":"next","imageUrl":"https://ai-pet-zeta.vercel.app/splash.png","buttonTitle":"Open AI Pet","websiteUrl":"https://ai-pet-zeta.vercel.app/"}'
-        />
-      </head>
-      <body style={{ margin: 0, padding: '20px', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+      <body
+        style={{
+          margin: 0,
+          padding: '20px',
+          fontFamily: 'system-ui, sans-serif',
+        }}
+      >
         {children}
       </body>
     </html>
