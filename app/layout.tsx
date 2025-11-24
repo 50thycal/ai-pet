@@ -5,11 +5,17 @@ export const metadata: Metadata = {
   title: APP_CONFIG.title,
   description: APP_CONFIG.description,
   other: {
-    'farcaster:version': '1',
-    'farcaster:iconUrl': 'https://miniapps-ai-pet.vercel.app/icon.png',
-    'farcaster:homeUrl': 'https://miniapps-ai-pet.vercel.app',
-    'farcaster:splashImageUrl': 'https://miniapps-ai-pet.vercel.app/splash.png',
-    'farcaster:webhookUrl': 'https://miniapps-ai-pet.vercel.app/api/webhook',
+    'fc:miniapp': JSON.stringify({
+      version: '1',
+      name: 'AI Pet',
+      iconUrl: 'https://ai-pet-zeta.vercel.app/icon.png',
+      homeUrl: 'https://ai-pet-zeta.vercel.app',
+      imageUrl: 'https://ai-pet-zeta.vercel.app/image.png',
+      buttonTitle: 'Check this out',
+      splashImageUrl: 'https://ai-pet-zeta.vercel.app/splash.png',
+      splashBackgroundColor: '#eeccff',
+      webhookUrl: 'https://ai-pet-zeta.vercel.app/api/webhook',
+    }),
   },
 }
 
