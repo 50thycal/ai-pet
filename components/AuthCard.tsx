@@ -30,9 +30,41 @@ export function AuthCard() {
         backgroundColor: '#f9fafb',
       }}>
         <p><strong>Signed in!</strong></p>
-        <p>FID: {user.fid}</p>
-        {user.username && <p>Username: @{user.username}</p>}
-        {user.displayName && <p>Display Name: {user.displayName}</p>}
+        <p style={{ fontSize: '14px', marginBottom: '4px' }}>
+          <span style={{ fontWeight: 500 }}>FID:</span> {user.fid}
+        </p>
+        {user.username && (
+          <p style={{ fontSize: '14px', marginBottom: '4px' }}>
+            <span style={{ fontWeight: 500 }}>Username:</span> @{user.username}
+          </p>
+        )}
+        {user.displayName && (
+          <p style={{ fontSize: '14px', marginBottom: '4px' }}>
+            <span style={{ fontWeight: 500 }}>Display Name:</span> {user.displayName}
+          </p>
+        )}
+        {user.address && (
+          <div style={{ fontSize: '12px', marginTop: '8px', color: '#6b7280' }}>
+            <span style={{ fontWeight: 500 }}>Auth signer address:</span>
+            <br />
+            <span style={{ fontFamily: 'monospace' }}>
+              {user.address.slice(0, 6)}…{user.address.slice(-4)}
+            </span>
+          </div>
+        )}
+        {user.message && (
+          <details style={{ marginTop: '12px', fontSize: '12px', color: '#6b7280' }}>
+            <summary style={{ cursor: 'pointer' }}>View raw sign-in message</summary>
+            <pre style={{
+              marginTop: '8px',
+              whiteSpace: 'pre-wrap',
+              wordBreak: 'break-word',
+              fontSize: '11px',
+            }}>
+              {user.message}
+            </pre>
+          </details>
+        )}
         <button
           onClick={signOut}
           style={{
