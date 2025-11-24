@@ -5,6 +5,12 @@ export const metadata: Metadata = {
   title: APP_CONFIG.title,
   description: APP_CONFIG.description,
   other: {
+    'fc:frame': JSON.stringify({
+      version: 'next',
+      imageUrl: 'https://ai-pet-zeta.vercel.app/splash.png',
+      buttonTitle: 'Open AI Pet',
+      websiteUrl: 'https://ai-pet-zeta.vercel.app/',
+    }),
     'fc:miniapp': JSON.stringify({
       version: '1',
       name: 'AI Pet',
