@@ -16,34 +16,47 @@ export function useAuthSession() {
   const [status, setStatus] = useState<'loading' | 'signedOut' | 'signedIn'>('loading')
   const [user, setUser] = useState<User | null>(null)
   const [error, setError] = useState<string | null>(null)
-  const [isInMiniApp, setIsInMiniApp] = useState(false)
+  const [isInMiniApp, setIsInMiniApp] = useState<boolean | null>(null)
 
+  // CRITICAL: Signal to Farcaster that app is ready
   useEffect(() => {
+    sdk.actions.ready()
+
+    sdk.isInMiniApp().then((inMiniApp) => {
+      setIsInMiniApp(inMiniApp)
+      if (!inMiniApp) {
+        setStatus('signedOut')
+      }
+    })
+  }, [])
+
+  // Load user context when in miniapp
+  useEffect(() => {
+    if (isInMiniApp === false) {
+      setStatus('signedOut')
+      return
+    }
+
+    if (isInMiniApp === null) {
+      return
+    }
+
     let mounted = true
 
     async function loadContext() {
       try {
-        const inMiniApp = await sdk.isInMiniApp()
+        const context: Context.MiniAppContext = await sdk.context
         if (!mounted) return
 
-        setIsInMiniApp(inMiniApp)
-
-        if (inMiniApp) {
-          const context: Context.MiniAppContext = await sdk.context
-          if (!mounted) return
-
-          if (context.user?.fid) {
-            setUser({
-              fid: context.user.fid,
-              address: '', // Not provided by default context
-              username: context.user.username,
-              displayName: context.user.displayName,
-              pfpUrl: context.user.pfpUrl,
-            })
-            setStatus('signedIn')
-          } else {
-            setStatus('signedOut')
-          }
+        if (context.user?.fid) {
+          setUser({
+            fid: context.user.fid,
+            address: '', // Not provided by default context
+            username: context.user.username,
+            displayName: context.user.displayName,
+            pfpUrl: context.user.pfpUrl,
+          })
+          setStatus('signedIn')
         } else {
           setStatus('signedOut')
         }
@@ -60,7 +73,7 @@ export function useAuthSession() {
     return () => {
       mounted = false
     }
-  }, [])
+  }, [isInMiniApp])
 
   const signIn = useCallback(async () => {
     setStatus('loading')
@@ -84,7 +97,7 @@ export function useAuthSession() {
     status,
     user,
     error,
-    isInMiniApp,
+    isInMiniApp: isInMiniApp ?? false,
     signIn,
     signOut,
   }
