@@ -63,8 +63,8 @@ export function ChatCard({ fid }: { fid: number }) {
 
         for (const line of lines) {
           if (line.startsWith('data:')) {
-            const data = line.slice(5).trim()
-            if (data === '[DONE]') continue
+            const data = line.slice(5)  // Don't trim! Keep leading spaces
+            if (data.trim() === '[DONE]') continue
             assistantMessage += data
           }
         }
@@ -121,6 +121,8 @@ export function ChatCard({ fid }: { fid: number }) {
                 borderRadius: '0.5rem',
                 backgroundColor: msg.role === 'user' ? '#3b82f6' : '#e5e7eb',
                 color: msg.role === 'user' ? 'white' : 'black',
+                whiteSpace: 'pre-wrap',
+                wordBreak: 'break-word',
               }}>
                 {msg.content}
               </div>
