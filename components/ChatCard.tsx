@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useRef, useState } from 'react'
+import { normalizePunctuationSpacing } from '@/lib/text'
 
 interface Message {
   role: 'user' | 'assistant'
@@ -71,10 +72,11 @@ export function ChatCard({ fid }: { fid: number }) {
 
         setMessages(prev => {
           const lastMsg = prev[prev.length - 1]
+          const cleanedContent = normalizePunctuationSpacing(assistantMessage)
           if (lastMsg?.role === 'assistant') {
-            return [...prev.slice(0, -1), { ...lastMsg, content: assistantMessage }]
+            return [...prev.slice(0, -1), { ...lastMsg, content: cleanedContent }]
           }
-          return [...prev, { role: 'assistant', content: assistantMessage, timestamp: Date.now() }]
+          return [...prev, { role: 'assistant', content: cleanedContent, timestamp: Date.now() }]
         })
 
         scrollToBottom()
